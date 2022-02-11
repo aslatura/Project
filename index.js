@@ -28,6 +28,8 @@ function search(event) {
   let cityElement = document.querySelector("#city");
   let cityInput = document.querySelector("#city-input");
   cityElement.innerHTML = cityInput.value;
+
+  getWeather(cityInput.value);
 }
 
 let dateElement = document.querySelector("#date");
@@ -39,15 +41,10 @@ searchForm.addEventListener("submit", search);
 
 ////////////////
 
-function getWeather() {
-  let cityInput = document.querySelector("#city-input");
+function getWeather(city) {
   let apiKey = "d3592968d288237ab5de304e493c66f3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric`;
-  let searchForm = document.querySelector("#search-form");
-  searchForm.addEventListener("submit", search);
-  axios
-    .get(`${apiUrl}&q=${cityInput.value}&appid=${apiKey}`)
-    .then(displayOnPage);
+  axios.get(`${apiUrl}&q=${city}&appid=${apiKey}`).then(displayOnPage);
 }
 
 navigator.geolocation.getCurrentPosition(getWeather);
@@ -73,6 +70,7 @@ function displayOnPage(response) {
     let cityElement = document.querySelector("#city");
     let cityInput = document.querySelector("#city-input");
     cityElement.innerHTML = cityInput.value;
+    getWeather(cityInput.value);
   }
 }
 

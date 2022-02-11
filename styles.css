@@ -27,7 +27,7 @@ li {
 .weather-app {
   border: 1px solid #dadde1;
   padding: 15px;
-  margin: 20px auto;
+  margin: 20px 10px 10px 10px;
   border-radius: 10px;
   max-width: 600px;
 }
@@ -52,4 +52,11 @@ li {
   background-color: #add8e6;
   border-color: #add8e6;
   color: #007bff;
+}
+
+#codeNote {
+  display: block;
+  font-size: 14px;
+  margin: 0px 0px 0px 15px;
+  padding: 0px 0px;
 }
