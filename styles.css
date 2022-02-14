@@ -64,3 +64,7 @@ li {
 #city {
   text-transform: capitalize;
 }
+
+.active {
+  color: rgb(33, 33, 33);
+}

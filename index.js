@@ -78,6 +78,8 @@ function displayOnPage(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  celsiusTemperature = response.data.main.temp;
+  //farenheitTemperature = response.data.main;
 
   function search(event) {
     event.preventDefault();
@@ -111,3 +113,33 @@ function searchGeo(event) {
   let cityInput = document.querySelector("#city-input");
   cityElement.innerHTML = cityInput.value;
 }
+
+//Celsius and farenheit temperatuere displays
+
+let celsiusTemperature = null;
+//let farenheitTemperature = null;
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsius);
+
+let farenheitLink = document.querySelector("#farenheit");
+farenheitLink.addEventListener("click", showFarenheit);
+
+function showFarenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+  tempElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+
+  tempElement.innerHTML = Math.round(celsiusTemperature);
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+}
+
+//Need something here that searches a city on load
