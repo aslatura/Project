@@ -60,3 +60,7 @@ li {
   margin: 0px 0px 0px 15px;
   padding: 0px 0px;
 }
+
+#city {
+  text-transform: capitalize;
+}

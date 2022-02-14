@@ -1,3 +1,10 @@
+//to time this using the API time stamp for the city selected,
+//see Week 7 Lesson 6 minute 7
+
+//format of description in css:
+//#description::first-letter {
+//  text-transform: uppercase;}
+
 function formatDate(date) {
   let hours = date.getHours();
   if (hours < 10) {
@@ -65,6 +72,13 @@ function displayOnPage(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  //document.querySelector("#icon").innerHTML = response.data.main
+  let iconElement = document.querySelector("#weatherIcon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
   function search(event) {
     event.preventDefault();
     let cityElement = document.querySelector("#city");
