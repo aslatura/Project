@@ -16,39 +16,31 @@
     <title>Week 5 Homework</title>
   </head>
 
-  <body>
+  <body onload="getCurrentLocation()">
     <div class="container">
       <div class="weather-app">
         <form class="search-form" id="search-form">
           <div class="row">
-            <div class="col-6">
+            <div class="col-8">
               <input
                 type="search"
-                placeholder="Type a city.."
+                placeholder="Type a city"
                 autofocus="on"
                 autocomplete="off"
                 id="city-input"
                 class="form-control shadow-sm"
               />
             </div>
-            <div class="col-3">
+            <div class="col-4">
               <input
                 type="submit"
                 value="Search"
-                class="form-control btn btn-primary shadow-sm"
+                class="form-control btn btn-secondary shadow-sm"
               />
-            </div>
-            <div class="col-3">
-              <button
-                class="btn btn-success w-100"
-                id="current-location-button"
-              >
-                Your City
-              </button>
             </div>
           </div>
         </form>
-        <h1 id="city">New York</h1>
+        <h1 id="city">Your Location...</h1>
         <ul>
           <li id="description">Partly Cloudy</li>
           <li>Last updated: <span id="date"></span></li>
