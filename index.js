@@ -35,7 +35,7 @@ dateElement.innerHTML = formatDate(currentTime);
 
 /////////////////////////////////////////////////////////
 
-//Load current weather in person's location on load
+//Current weather in person's location on load
 
 /////////////////////////////////////////////////////////
 
