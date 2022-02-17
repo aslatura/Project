@@ -125,11 +125,15 @@ function displayOnPage(response) {
     cityElement.innerHTML = cityInput.value;
     getWeather(cityInput.value);
   }
+  ///added in later to get coordinates for forecast:
+  getForecast(response.data.coord);
 }
 
-//////////////////////
+/////////////////////////////////////////////////////////
 
 //Celsius and farenheit temperatuere displays
+
+/////////////////////////////////////////////////////////
 
 let celsiusTemperature = null;
 //let farenheitTemperature = null;
@@ -155,4 +159,53 @@ function showCelsius(event) {
   tempElement.innerHTML = Math.round(celsiusTemperature);
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
+}
+
+/////////////////////////////////////////////////////////
+
+//Duplicating forecast day
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tues"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+            <div class="forecast-date">${day}</div>
+          
+          <div class="forecast-icon">
+            <img
+              src="https://openweathermap.org/img/wn/03d@2x.png"
+              id="weatherIcon"
+              width="36"
+            />
+          </div>
+          <div class="forecast-temp">
+            <span id="high-temp">18</span>
+            <span>° </span>
+            <span id="low-temp">12</span>
+            <span>°</span>
+          </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+//Move inside getForecast
+//displayForecast();
+
+/////////////////////////////////////////////////////////
+
+//API call for forecast
+
+function getForecast(coordinates) {
+  let apiKey = "d3592968d288237ab5de304e493c66f3";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiURL);
+  axios.get(apiURL).then(displayForecast);
 }

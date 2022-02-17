@@ -40,13 +40,26 @@
             </div>
           </div>
         </form>
-        <h1 id="city">Your Location...</h1>
-        <ul>
-          <li id="description">Partly Cloudy</li>
-          <li>Last updated: <span id="date"></span></li>
-        </ul>
-        <div class="row">
-          <div class="col-6">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-8">
+              <ul>
+                <li><h1 id="city">Your Location...</h1></li>
+                <li><h2 id="description">Partly Cloudy</h2></li>
+              </ul>
+            </div>
+
+            <div class="col-4">
+              <ul>
+                <li>Last updated:</li>
+                <li id="date"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 30px">
+          <div class="col-8">
             <div class="clearfix">
               <div class="float-left">
                 <span>
@@ -64,31 +77,14 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-4">
             <ul>
               <li>Humidity: <span id="humidity">77</span><span>%</span></li>
               <li>Wind: <span id="wind">8</span><span>km/h</span></li>
             </ul>
           </div>
         </div>
-        <div class="forecast">
-          <div class="col-2">
-            <div class="forecast-date">Thur</div>
-          </div>
-          <div class="forecast-icon">
-            <img
-              src="https://openweathermap.org/img/wn/03d@2x.png"
-              id="weatherIcon"
-              width="36"
-            />
-          </div>
-          <div class="forecast-temp">
-            <span id="high-temp">18</span>
-            <span>° / </span>
-            <span id="low-temp">12</span>
-            <span>°</span>
-          </div>
-        </div>
+        <div id="forecast" class="col-12"></div>
       </div>
       <div id="codeNote">
         <a href="https://github.com/aslatura/Project" target="_blank"
