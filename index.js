@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////
 
-//Current day and time on load
+//Current day and time on load (function at end of file)
 
 /////////////////////////////////////////////////////////
 
@@ -48,7 +48,7 @@ function formatDay(timestamp) {
 
 /////////////////////////////////////////////////////////
 
-//Current weather in person's location on load
+//Current weather in person's location on load (function at end of file)
 
 /////////////////////////////////////////////////////////
 
@@ -142,7 +142,9 @@ function displayOnPage(response) {
 
 /////////////////////////////////////////////////////////
 
-//Duplicating forecast day html
+//JS function duplicating HTML for daily forecast
+
+/////////////////////////////////////////////////////////
 
 function displayForecast(response) {
   //console.log(response.data.daily);
@@ -180,12 +182,14 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-//Move inside getForecast
+//Moved inside getForecast
 //displayForecast();
 
 /////////////////////////////////////////////////////////
 
 //API call for forecast
+
+/////////////////////////////////////////////////////////
 
 function getForecast(coordinates) {
   let apiKey = "d3592968d288237ab5de304e493c66f3";
@@ -196,7 +200,7 @@ function getForecast(coordinates) {
 
 /////////////////////////////////////////////////////////
 
-//Display forecast for geolocated city
+//Display daily forecast for geolocated city on load
 
 /////////////////////////////////////////////////////////
 
@@ -247,6 +251,12 @@ function displayForecastGeo(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+/////////////////////////////////////////////////////////
+
+//On load function
+
+/////////////////////////////////////////////////////////
 
 window.onload = function () {
   getCurrentLocation();
