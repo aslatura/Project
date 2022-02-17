@@ -35,6 +35,19 @@ dateElement.innerHTML = formatDate(currentTime);
 
 /////////////////////////////////////////////////////////
 
+//Day for searched city's forecast
+
+/////////////////////////////////////////////////////////
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
+/////////////////////////////////////////////////////////
+
 //Current weather in person's location on load
 
 /////////////////////////////////////////////////////////
@@ -131,7 +144,7 @@ function displayOnPage(response) {
 
 /////////////////////////////////////////////////////////
 
-//Celsius and farenheit temperatuere displays
+//Celsius and farenheit temperature displays
 
 /////////////////////////////////////////////////////////
 
@@ -163,33 +176,38 @@ function showCelsius(event) {
 
 /////////////////////////////////////////////////////////
 
-//Duplicating forecast day
+//Duplicating forecast day html
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  //console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tues"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-            <div class="forecast-date">${day}</div>
+  //let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tues"];
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+            <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
           
           <div class="forecast-icon">
             <img
-              src="https://openweathermap.org/img/wn/03d@2x.png"
+              src="https://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
               id="weatherIcon"
               width="36"
             />
           </div>
           <div class="forecast-temp">
-            <span id="high-temp">18</span>
+            <span id="high-temp">${Math.round(forecastDay.temp.max)}</span>
             <span>° </span>
-            <span id="low-temp">12</span>
+            <span id="low-temp">${Math.round(forecastDay.temp.min)}</span>
             <span>°</span>
           </div>
           </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
