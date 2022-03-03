@@ -97,3 +97,46 @@ a {
   opacity: 70%;
   color: #7c7c7c;
 }
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  li {
+    font-size: 14px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .temperature {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  #high-temp {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  #low-temp {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .units {
+    font-size: 12px;
+  }
+}
