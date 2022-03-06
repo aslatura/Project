@@ -240,9 +240,9 @@ function displayForecastGeo(response) {
           </div>
           <div class="forecast-temp">
             <span id="high-temp">${Math.round(forecastDay.temp.max)}</span>
-            <span class="d-none d-md-block">°</span>
+            <span class="d-none d-md-block"></span>
             <span id="low-temp">${Math.round(forecastDay.temp.min)}</span>
-            <span class="d-none d-md-block">°</span>
+            <span class="d-none d-md-block"></span>
           </div>
           </div>`;
     }
